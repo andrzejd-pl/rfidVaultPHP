@@ -30,12 +30,8 @@ class AdminPanelController {
         $this->adminView->show();
     }
 
-    public function setCardName() {
-
-    }
-
-    public function setCardValidation() {
-
+    public function setCardNameAndValidation() {
+        var_dump($_POST);
     }
 
     public function logOut() {

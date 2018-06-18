@@ -8,7 +8,6 @@ require_once 'Model/Model.php';
 class Cards implements Model{
     private $state;
     private $pathToKnown = '/var/rfidVault/knownCards';
-    private $pathToValid = '/var/rfidVault/validCards';
 
     public function getState() {
         return $this->state;
@@ -25,9 +24,7 @@ class Cards implements Model{
                 . $item[0]
                 . '][name]" /> Validated: <input type="checkbox" name="cards['
                 . $item[0]
-                . '][validated]"'
-                . ($item[2]==1)?('checked'):('')
-                .'><br />'
+                . '][validated]"/><br />'
                 . PHP_EOL;
         }
         $this->state .= '</form>';
