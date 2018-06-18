@@ -31,6 +31,8 @@ class Vault implements Model{
         }
 
         fclose($file);
+
+        return $data;
     }
 
     public function getState() {
