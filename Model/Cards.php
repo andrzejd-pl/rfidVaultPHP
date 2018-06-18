@@ -20,7 +20,7 @@ class Cards implements Model{
         foreach ($date as $item) {
             $this->state .= $item[0] .
                 ": <input type='text' value='$item[1]' name='cads[$item[0]][name]' /> Validated: <input type='checkbox' name='cards[$item[0]][validated]' " .
-                ($item[2]===1)?('checked'):(null).
+                ($item[2]===1)?('checked'):('').
                 " ><br />\n";
         }
         $this->state .= '</form>';
