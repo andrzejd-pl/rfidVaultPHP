@@ -3,6 +3,7 @@
 
 namespace Model;
 
+require_once 'Model/Model.php';
 
 class Vault implements Model{
     private $path = '/var/rfidVault/access.log';
