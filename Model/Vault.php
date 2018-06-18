@@ -11,7 +11,7 @@ class Vault implements Model{
 
     public function readLogs() {
         $data = file_get_contents($this->path);
-        $this->state = str_replace('\n', '<br />\n', $data);
+        $this->state = str_replace("\n", "<br />\n", $data);
     }
 
     public function getState() {
