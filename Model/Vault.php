@@ -26,7 +26,7 @@ class Vault implements Model{
 
         while(!feof($file)) {
             $tmp = fgets($file);
-
+            $tmp = str_replace("\n", "", $tmp);
             $data[] = explode(';', $tmp);
         }
 
