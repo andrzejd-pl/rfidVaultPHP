@@ -15,7 +15,7 @@ class Cards implements Model{
 
     public function readKnownCards() {
         $date = $this->readFile($this->pathToKnown);
-        $this->state = '<form method="post" action="/?action=set_cards_name">';
+        $this->state = '<form method="post" action="/?action=set_cards">';
         foreach ($date as $item) {
             $this->state .= $item[0] .
                 ': <input type="text" value="'
