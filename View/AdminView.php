@@ -10,7 +10,7 @@ require_once 'Model/Vault.php';
 class AdminView {
     private $model;
 
-    public function setModel(\Model\Model &$model): void {
+    public function setModel(\Model\Model &$model) {
         $this->model = &$model;
     }
 
