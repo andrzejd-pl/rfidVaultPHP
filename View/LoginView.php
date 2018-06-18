@@ -43,17 +43,10 @@ class LoginView {
         <?php
     }
 
-    public function showLoginPage()
+    public function showLoginPage(bool $invalid)
     {
         $this->showHeader();
-        $this->showForm();
-        $this->showFooter();
-    }
-
-    public function showInvalidLoginPage()
-    {
-        $this->showHeader();
-        $this->showInvalidLogin();
+        ($invalid)?$this->showInvalidLogin():(null);
         $this->showForm();
         $this->showFooter();
     }

@@ -22,17 +22,17 @@ class LoginController {
     {
         $this->userModel->checkLoginData($userName, $userPass);
         if($this->userModel->getState() === 0) {
-            $this->loginView->showLoginPage();
+            $this->loginView->showLoginPage(false);
         }
-        else if($this->userModel->getState() === 1) {
+        elseif($this->userModel->getState() === 1) {
             $_SESSION['login'] = true;
         }
-        else ($this->userModel->getState() === -1) {
-            $this->loginView->showInvalidLoginPage();
+        elseif ($this->userModel->getState() === -1) {
+            $this->loginView->showLoginPage(true);
         }
     }
 
     public function showForm() {
-        $this->loginView->showLoginPage();
+        $this->loginView->showLoginPage(false);
     }
 }
