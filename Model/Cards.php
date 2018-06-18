@@ -27,7 +27,7 @@ class Cards implements Model{
                 . '][validated]"/><br />'
                 . PHP_EOL;
         }
-        $this->state .= '</form>';
+        $this->state .= '<input type="submit" value="Send" /></form>';
     }
 
     private function readFile($path) {
