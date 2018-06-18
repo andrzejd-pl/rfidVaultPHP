@@ -19,22 +19,30 @@ class AdminPanelController {
     }
 
     public function getIndexPage() {
-
+        $this->adminView->setModel($this->vaultModel);
+        $this->vaultModel->readLogs();
+        $this->adminView->show();
     }
 
     public function getCardPage() {
-
+        $this->adminView->setModel($this->cardsModel);
+        $this->cardsModel->readKnownCards();
+        $this->adminView->show();
     }
 
     public function setCardName() {
-
+        $this->adminView->setModel($this->cardsModel);
+        $this->cardsModel->readKnownCards();
+        $this->adminView->show();
     }
 
     public function setCardValidation() {
-
+        $this->adminView->setModel($this->cardsModel);
+        $this->cardsModel->readKnownCards();
+        $this->adminView->show();
     }
 
     public function logOut() {
-
+        unset($_SESSION['login']);
     }
 }

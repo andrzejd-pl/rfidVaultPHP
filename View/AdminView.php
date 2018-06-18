@@ -10,11 +10,8 @@ require_once 'Model/Vault.php';
 class AdminView {
     private $model;
 
-    /**
-     * @param \Model\Model $model
-     */
-    public function setModel(\Model\Model $model): void {
-        $this->model = $model;
+    public function setModel(\Model\Model &$model): void {
+        $this->model = &$model;
     }
 
     private function showHeader()
@@ -56,7 +53,7 @@ class AdminView {
     {
         $this->showHeader();
         $this->showMenu();
-        echo $this->model->getState();
+        echo '<div>'.$this->model->getState().'</div>';
         $this->showFooter();
     }
 }

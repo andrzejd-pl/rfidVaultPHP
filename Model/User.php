@@ -15,9 +15,6 @@ class User {
         else $this->state = 0;
     }
 
-    /**
-     * @return int
-     */
     public function getState(): int
     {
         return $this->state;

@@ -10,13 +10,9 @@ class Vault implements Model{
 
     public function readLogs() {
         $data = file_get_contents($this->path);
-        str_replace('\n', '<br />\n', $data);
-        $this->state = $data;
+        $this->state = str_replace('\n', '<br />\n', $data);
     }
 
-    /**
-     * @return mixed
-     */
     public function getState() {
         return $this->state;
     }
