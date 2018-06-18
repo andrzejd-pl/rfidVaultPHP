@@ -27,9 +27,9 @@ class LoginController {
         else if($this->userModel->getState() === 1) {
             $_SESSION['login'] = true;
         }
-//        else ($this->userModel->getState() === -1) {
-//            $this->loginView->showInvalidLoginPage();
-//        }
+        else ($this->userModel->getState() === -1) {
+            $this->loginView->showInvalidLoginPage();
+        }
     }
 
     public function showForm() {
