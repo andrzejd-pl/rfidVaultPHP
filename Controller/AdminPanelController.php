@@ -31,7 +31,7 @@ class AdminPanelController {
     }
 
     public function setCardNameAndValidation() {
-        var_dump($_POST);
+        $this->cardsModel->saveCards($_POST['cards']);
     }
 
     public function logOut() {

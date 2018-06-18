@@ -45,4 +45,14 @@ class Cards implements Model{
 
         return $data;
     }
+
+    public function saveCards(array $cards) {
+        $data = '';
+        foreach ($cards as $uuid => $card) {
+            $line = $uuid . ';' . $card['name'] . ';' .(isset($card['validated']) && $card['validated'] === 'on')? "1":"0".PHP_EOL;
+            $data .= $line;
+        }
+
+        file_put_contents($this->pathToKnown, $data);
+    }
 }

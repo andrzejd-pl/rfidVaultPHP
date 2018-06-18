@@ -38,13 +38,7 @@ class AdminView {
         ?>
         <ul>
             <li><a href="/">Main page</a></li>
-            <li>
-                <ol>
-                    <li><a href="/?action=show_cards">Show all cards</a></li>
-                    <li><a href="/?action=set_card_name">Set card's nick</a></li>
-                    <li><a href="/?action=set_card_name">Set validated card</a></li>
-                </ol>
-            </li>
+            <li><a href="/?action=show_cards">Show all cards</a></li>
         </ul>
         <?php
     }
