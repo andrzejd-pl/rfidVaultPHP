@@ -11,11 +11,13 @@ if(isset($_SESSION['login']) && $_SESSION['login'] === true) {
         if($_GET['action'] == 'show_cards') {
             $controller->getCardPage();
         }
-        elseif ($_GET['action'] == 'set_card_name') {
+        elseif ($_GET['action'] == 'set_cards_name') {
             $controller->setCardName();
+            $controller->getCardPage();
         }
         elseif ($_GET['action'] == 'set_card_validation') {
             $controller->setCardValidation();
+            $controller->getCardPage();
         }
         elseif ($_GET['action'] == 'logout') {
             $controller->logOut();

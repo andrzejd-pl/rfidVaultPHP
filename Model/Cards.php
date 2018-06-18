@@ -15,12 +15,28 @@ class Cards implements Model{
     }
 
     public function readKnownCards() {
-        $date = file_get_contents($this->pathToKnown);
-        $this->state = str_replace("\n", "<br />\n", $date);
+        $date = $this->readFile($this->pathToKnown);
+        $this->state = '<form method="post" action="/?action=set_cards_name">';
+        foreach ($date as $item) {
+            $this->state .= $item[0] .
+                ": <input type='text' value='$item[1]' name='$item[0][name]' /> Validated: <input type='checkbox' name='$item[0][validated]' ><br />\n";
+        }
+        $this->state .= '</form>';
     }
 
-    public function getCardsToSetNick() {
-        $date = file_get_contents($this->pathToKnown);
-        $this->state = str_replace("\n", "<br />\n", $date);
+    private function readFile($path) {
+        $file = fopen($path, 'r');
+
+        $data = array();
+
+        while(!feof($file)) {
+            $tmp = fgets($file);
+            $tmp = str_replace("\n", "", $tmp);
+            $data[] = explode(';', $tmp);
+        }
+
+        fclose($file);
+
+        return $data;
     }
 }

@@ -31,15 +31,11 @@ class AdminPanelController {
     }
 
     public function setCardName() {
-        $this->adminView->setModel($this->cardsModel);
-        $this->cardsModel->readKnownCards();
-        $this->adminView->show();
+
     }
 
     public function setCardValidation() {
-        $this->adminView->setModel($this->cardsModel);
-        $this->cardsModel->readKnownCards();
-        $this->adminView->show();
+
     }
 
     public function logOut() {
