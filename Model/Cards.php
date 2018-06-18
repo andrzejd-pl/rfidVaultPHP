@@ -25,7 +25,9 @@ class Cards implements Model{
                 . $item[0]
                 . '][name]" /> Validated: <input type="checkbox" name="cards['
                 . $item[0]
-                . '][validated]"><br />'
+                . '][validated]"'
+                . ($item[2]==1)?('checked'):('')
+                .'><br />'
                 . PHP_EOL;
         }
         $this->state .= '</form>';
