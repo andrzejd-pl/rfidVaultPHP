@@ -2,8 +2,8 @@
 
 namespace Controller;
 
-require_once '../Model/User.php';
-require_once '../View/LoginView.php';
+require_once 'Model/User.php';
+require_once 'View/LoginView.php';
 
 use Model\User;
 use View\LoginView;
