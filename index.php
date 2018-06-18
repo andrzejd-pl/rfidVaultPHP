@@ -5,12 +5,33 @@ require_once 'Controller/AdminPanelController.php';
 session_start();
 
 if(isset($_SESSION['login']) && $_SESSION['login'] === true) {
-    echo 'ok';
+    $controller = new \Controller\AdminPanelController();
+
+    if(isset($_GET['action'])) {
+        if($_GET['action'] == 'show_cards') {
+            $controller->getCardPage();
+        }
+        elseif ($_GET['action'] == 'set_card_name') {
+            $controller->setCardName();
+        }
+        elseif ($_GET['action'] == 'set_card_validation') {
+            $controller->setCardValidation();
+        }
+        elseif ($_GET['action'] == 'logout') {
+            $controller->logOut();
+        }
+        else {
+            $controller->getIndexPage();
+        }
+    }
+    else {
+        $controller->getIndexPage();
+    }
 }
 else {
     $controller = new \Controller\LoginController();
-    if(isset($_POST['login']) && isset($_POST['password'])) {
+    if(isset($_POST['login']) && isset($_POST['password']))
         $controller->logIn($_POST['login'], $_POST['password']);
-    }
-    $controller->showForm();
+    else
+        $controller->showForm();
 }

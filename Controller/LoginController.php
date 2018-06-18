@@ -26,7 +26,6 @@ class LoginController {
         }
         elseif($this->userModel->getState() === 1) {
             $_SESSION['login'] = true;
-            header('Location: /');
         }
         elseif ($this->userModel->getState() === -1) {
             $this->loginView->showLoginPage(true);
