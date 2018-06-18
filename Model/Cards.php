@@ -16,6 +16,11 @@ class Cards implements Model{
 
     public function readKnownCards() {
         $date = file_get_contents($this->pathToKnown);
-        $this->state = str_replace('\n', '<br />\n', $date);
+        $this->state = str_replace("\n", "<br />\n", $date);
+    }
+
+    public function getCardsToSetNick() {
+        $date = file_get_contents($this->pathToKnown);
+        $this->state = str_replace("\n", "<br />\n", $date);
     }
 }

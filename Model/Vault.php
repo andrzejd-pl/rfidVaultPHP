@@ -6,12 +6,31 @@ namespace Model;
 require_once 'Model/Model.php';
 
 class Vault implements Model{
-    private $path = '/var/rfidVault/access.log';
+    private $pathToLogFile = '/var/rfidVault/access.log';
+    private $pathToAllCards = '/var/rfidVault/knownCards';
     private $state;
 
     public function readLogs() {
-        $data = file_get_contents($this->path);
+        $data = file_get_contents($this->pathToLogFile);
+        $cards = $this->readFile($this->pathToAllCards);
+        foreach ($cards as $card) {
+            $data = str_replace($card[0], $card[1], $data);
+        }
         $this->state = str_replace("\n", "<br />\n", $data);
+    }
+
+    private function readFile($path) {
+        $file = fopen($path, 'r');
+
+        $data = array();
+
+        while(!feof($file)) {
+            $tmp = fgets($file);
+
+            $data[] = explode(';', $tmp);
+        }
+
+        fclose($file);
     }
 
     public function getState() {
