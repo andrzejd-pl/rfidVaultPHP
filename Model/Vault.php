@@ -20,17 +20,15 @@ class Vault implements Model{
     }
 
     private function readFile($path) {
-        $file = fopen($path, 'r');
+        $fileData = file_get_contents($path);
 
-        $data = array();
-
-        while(!feof($file)) {
-            $tmp = fgets($file);
-            $tmp = str_replace("\n", "", $tmp);
-            $data[] = explode(';', $tmp);
+        $data = explode("\n", $fileData);
+        foreach ($data as &$line) {
+            $line = explode(';', $line);
         }
 
-        fclose($file);
+        var_dump($data);
+        exit (0);
 
         return $data;
     }
