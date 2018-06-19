@@ -40,6 +40,7 @@ class Cards implements Model{
             $data[] = explode(';', $line);
         }
 
+        array_pop($data);
         return $data;
 
         $file = fopen($path, 'r');
