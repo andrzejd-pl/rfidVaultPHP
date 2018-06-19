@@ -27,9 +27,6 @@ class Vault implements Model{
             $line = explode(';', $line);
         }
 
-        var_dump($data);
-        exit (0);
-
         return $data;
     }
 
