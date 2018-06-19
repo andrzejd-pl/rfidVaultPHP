@@ -6,8 +6,8 @@ namespace Model;
 require_once 'Model/Model.php';
 
 class Vault implements Model{
-    private $pathToLogFile = '/var/rfidVault/access.log';
-    private $pathToAllCards = '/var/rfidVault/knownCards';
+    private $pathToLogFile = 'data/access.log';
+    private $pathToAllCards = 'data/knownCards';
     private $state;
 
     public function readLogs() {

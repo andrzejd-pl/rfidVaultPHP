@@ -7,7 +7,7 @@ require_once 'Model/Model.php';
 
 class Cards implements Model{
     private $state;
-    private $pathToKnown = '/var/rfidVault/knownCards';
+    private $pathToKnown = 'data/knownCards';
 
     public function getState() {
         return $this->state;
