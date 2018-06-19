@@ -31,6 +31,17 @@ class Cards implements Model{
     }
 
     private function readFile($path) {
+        $fileData = file_get_contents($path);
+
+        $fileData = explode("\n", $fileData);
+
+        $data = array();
+        foreach ($fileData as $line) {
+            $data[] = explode(';', $line);
+        }
+
+        return $data;
+
         $file = fopen($path, 'r');
 
         $data = array();
@@ -49,8 +60,13 @@ class Cards implements Model{
     public function saveCards(array $cards) {
         $data = '';
         foreach ($cards as $uuid => $card) {
-            $line = $uuid . ';' . $card['name'] . ';' .(isset($card['validated']) && $card['validated'] === 'on')? "1":"0".PHP_EOL;
-            $data .= $line;
+            $line = $uuid . ';' . $card['name'] . ';';
+            if(isset($card['validated']) && $card['validated'] == 'on')
+                $line = $line .  "1";
+            else
+                $line = $line . "0";
+            $line = $line . PHP_EOL;
+            $data = $data . $line;
         }
 
         file_put_contents($this->pathToKnown, $data);
